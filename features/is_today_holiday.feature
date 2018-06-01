@@ -5,11 +5,11 @@ Feature: Is today holiday?
   Scenario: Saturday is holiday
     Given today is Saturday
     When I ask whether it's holiday
-    Then I should be told "Yes!It's Saturday and Holiday" 
+    Then I should be told that "Yes!It's Saturday and Holiday" 
 
 
 
     Scenario: Thursday isn't holiday
       Given today is Thursday
       When I ask whether it's holiday
-      Then I should be told "Nope"
+      Then I should be told that "Nope"

@@ -12,6 +12,7 @@
 
 
  module FridayStepHelper
+
  	#Method for friday finder
 	def is_it_friday?(day)
 		# 'Nope'
@@ -23,6 +24,19 @@
 			return "Neither Friday Nor Sunday "
 		end 	
 	end
+
+
+   def is_it_friday1?(day)
+	 # 'Nope'
+	 if day == "Friday"
+	  return "Yay"
+	 elsif day == "Sunday"
+	 return "Nope"
+	 else
+	 return "Neither Friday Nor Sunday "
+	 end 	
+   end
+
 
  end
 
@@ -63,6 +77,28 @@
 
  end
 
+ Given("today is Sunday1") do
+   @today = 'Sunday'
+ end
+
+ Given("today is Friday1") do
+   @today = 'Friday'
+ end
+
+
+ When("I ask whether it's Friday yet1") do
+   @actual_answer = is_it_friday1?(@today)
+ end
+
+ Then("I should be told1 {string}") do |expected_answer|
+   expect(@actual_answer).to eq(expected_answer)
+ end
+
+
+ # When("I ask whether it's Sunday yet") do
+ #   @actual_answer = is_it_friday?(@today)
+ # end
+
  
 
  World HolidayHelper 
@@ -78,6 +114,6 @@
    @actual_answer = is_today_holiday?(@today)
  end
 
- Then("I should be told1 {string}") do |expected_answer|
+ Then("I should be told that {string}") do |expected_answer|
    expect(@actual_answer).to eq(expected_answer)
  end
