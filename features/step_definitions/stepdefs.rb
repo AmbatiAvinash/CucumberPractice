@@ -16,12 +16,24 @@
 	 # 'Nope'
 	 if day == "Friday"
 	  return "Yay"
-	 elsif day =="Sunday"
+	 elsif day == "Sunday"
 	 return "Nope"
 	 else
 	 return "Neither Friday Nor Sunday "
 	 end 	
    end
+
+   def is_it_friday1?(day)
+	 # 'Nope'
+	 if day == "Friday"
+	  return "Yay"
+	 elsif day == "Sunday"
+	 return "Nope"
+	 else
+	 return "Neither Friday Nor Sunday "
+	 end 	
+   end
+
  end
  World FridayStepHelper
 
@@ -42,6 +54,24 @@
    expect(@actual_answer).to eq(expected_answer)
  end
 
+
+
+ Given("today is Sunday1") do
+   @today = 'Sunday'
+ end
+
+ Given("today is Friday1") do
+   @today = 'Friday'
+ end
+
+
+ When("I ask whether it's Friday yet1") do
+   @actual_answer = is_it_friday1?(@today)
+ end
+
+ Then("I should be told1 {string}") do |expected_answer|
+   expect(@actual_answer).to eq(expected_answer)
+ end
 
 
  # When("I ask whether it's Sunday yet") do
